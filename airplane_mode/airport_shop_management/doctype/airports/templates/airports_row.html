@@ -1,0 +1,13 @@
+<div class="airport-row mb-3">
+    <h4>
+        <a href="/{{ doc.route | e }}" class="text-primary">
+            {{ (doc.airport_name or doc.name) | e }}
+        </a>
+    </h4>
+    <p>
+        <strong>Total Shops:</strong> {{ doc.total_shops }}<br>
+        <strong>Available Shops:</strong> {{ doc.available_shops }}<br>
+        <strong>Occupied Shops:</strong> {{ doc.occupied_shops }}
+    </p>
+    <a href="/{{ doc.route | e }}" class="btn btn-sm btn-primary">Details</a>
+</div>

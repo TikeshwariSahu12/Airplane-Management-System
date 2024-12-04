@@ -1,0 +1,21 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+    <h2>{{ doc.airplane or "Flight Information Not Available" }}</h2>
+    <h3>Flight Details</h3>
+    <ul>
+        <li>Airplane: {{ doc.airplane or "Not Specified" }}</li>
+        <li>Route: {{ doc.route or  "Not Specified" }}</li>
+        <li>
+            Departure: 
+            {{ frappe.utils.format_date(doc.date_of_departure, "d MMMM, YYYY") or "Unknown Date" }} 
+            at 
+            {{ doc.time_of_departure or "Unknown Time" }}
+        </li>
+        <li>Duration: {{ frappe.utils.format_duration(doc.duration) or "Not Specified" }}</li>
+    </ul>
+
+    <a class="btn btn-info" href="/ticket-booking-web-form?airplane_flight={{ doc.airplane | e }}">
+        Book Flight
+    </a>
+{% endblock %}

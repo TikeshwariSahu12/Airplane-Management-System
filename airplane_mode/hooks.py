@@ -244,4 +244,9 @@ app_license = "mit"
 # default_log_clearing_doctypes = {
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
-
+doc_events = {
+    "Shop": {
+        "on_update": "airplane_mode.airport_shop_management.doctype.shop.shop.update_airport_shop_counts",
+        "on_trash": "airplane_mode.airport_shop_management.doctype.shop.shop.update_airport_shop_counts"
+    }
+}

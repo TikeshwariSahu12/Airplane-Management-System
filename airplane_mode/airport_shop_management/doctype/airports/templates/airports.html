@@ -1,0 +1,32 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+<div class="container mt-4">
+    <h1 class="mb-4">{{ title | e }}</h1>
+    
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Airport Name</th>
+                <th>Total Shops</th>
+                <th>Available Shops</th>
+                <th>Occupied Shops</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for airport in items %}
+                <tr>
+                    <td><a href="{{ airport.route }}">{{ airports.airport_name }}</a></td>
+                    <td>{{ airport.total_shops }}</td>
+                    <td>{{ airport.available_shops }}</td>
+                    <td>{{ airport.occupied_shops }}</td>
+                    <td>
+                        <a href="{{ airport.route }}" class="btn btn-primary btn-sm">View Details</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

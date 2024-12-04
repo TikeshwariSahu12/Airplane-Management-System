@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Shops for Lease</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Available Shops for Lease</h1>
+
+        {% if shop_list %}
+        <ul>
+            {% for shop in shop_list %}
+            <li>
+                <h3>{{ shop.shop_name }}</h3>
+                <p class="rent-amount">Shop Number: {{ shop.shop_number }}</p>
+                <p class="tenant-name">Tenant Name: {{ shop.tenant_name }}</p>
+                <p class="rent-amount">Rent Amount: ₹{{ shop.rent_amount }}</p>
+                <p class="location">Location: {{ shop.location }}</p>
+                <p class="airport">Airport Name: {{ shop.airport }}</p>
+                <p class="status">Shop Status: {{ shop.status }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No shops available for lease at the moment.</p>
+        {% endif %}
+    </div>
+
+</body>
+<style>
+    /* General Styles */
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f7f7f7;
+        color: #333;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 2.5rem;
+        color: #6A5ACD; /* A nice soft purple color */
+        margin-bottom: 40px;
+    }
+
+    /* List styles */
+    ul {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+        list-style-type: none;
+        padding: 0;
+    }
+
+    li {
+        background-color: #fafafa;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        border: 2px solid #ddd;
+    }
+
+    li:hover {
+        transform: translateY(-5px);
+        border-color: #6A5ACD; /* Border color on hover */
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        color: #444;
+        margin-bottom: 15px;
+    }
+
+    p {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+        color: #666;
+    }
+
+    /* Rent Amount Styling */
+    .rent-amount {
+        color: #FF6347; /* Tomato color for rent amount */
+        font-weight: bold;
+    }
+
+    /* Location and Status */
+    .location, .airport, .status {
+        font-style: italic;
+        color: #8A2BE2; /* Blue-Violet color */
+    }
+
+    /* No shops available */
+    .no-shops {
+        text-align: center;
+        font-size: 1.2rem;
+        color: #FF4500; /* Orange-Red color */
+        font-weight: bold;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 2rem;
+        }
+
+        ul {
+            grid-template-columns: 1fr;
+        }
+
+        li {
+            padding: 15px;
+        }
+    }
+
+</style>
+
+</html>
